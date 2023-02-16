@@ -27,7 +27,7 @@
 <!-- navbar start -->
 
 <body onload="loadfun()">
-  <div id="loading"></div>
+    <div id="loading"></div>
     <div class="container-fluid ps-lg-0 pe-lg-0 ps-0 pe-0 bg-primary-color" style="z-index:99">
         <div class="container pb-lg-2">
             <div class="d-none d-lg-block d-md-block">
@@ -380,13 +380,22 @@
     </section>
     <!-- footer end -->
     <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-angle-up"></i></button>
+    <!-- footer end -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/wow.min.js"></script>
     <script>
+        new WOW().init();
+    </script>
+    <script>
+        var load = document.getElementById("loading");
+        function loadfun() {
+            load.style.display = 'none'
+        }
         var mybutton = document.getElementById("myBtn");
 
         // When the user scrolls down 20px from the top of the document, show the button
@@ -400,8 +409,49 @@
             }
         }
 
-// When the user clicks on the button, scroll to the top of the document
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+        $('.slider').slick({
+            draggable: true,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            arrows: false,
+            dots: false,
+            fade: true,
+            speed: 300,
+            infinite: true,
+            cssEase: 'ease-in-out',
+            responsive: [{
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 400,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }]
+            // touchThreshold: 100
+        });
 
+    </script>
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            loop: true,
+            slidesPerView: 4,
+            delay: 3000,
+            autoplay: true,
+            spaceBetween: 30,
+
+        });
 
     </script>
 </body>
